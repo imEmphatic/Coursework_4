@@ -13,9 +13,7 @@ class AbstractApi(ABC):
 
 
 class HH(AbstractApi):
-    """
-    Класс для работы с API HeadHunter
-    """
+    """Класс для работы с API HeadHunter"""
 
     def __init__(self):
         self.__url = "https://api.hh.ru/vacancies"
@@ -31,6 +29,9 @@ class HH(AbstractApi):
         return response
 
     def get_vacancies(self, per_page: int, text: str = ''):
+        """Отправляет GET-запрос к API hh.ru для получения списка вакансий,
+        соответствующих заданному критерию поиска"""
+
         self.per_page = per_page
         self.text = text
         response = self._get_response(self.per_page, self.text)
