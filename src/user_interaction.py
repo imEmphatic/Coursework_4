@@ -6,11 +6,13 @@ my_vacancy = GetJson()
 
 
 class UserInteraction:
+    """Класс по поиску вакансий"""
     def __init__(self):
         pass
 
     @staticmethod
     def get_vacancies():
+        """Вывод вакансий по ключевым словам"""
         name_vacancies = input(
             """Введите ключевые слова для поиска вакансий на сайте hh.ru (например название профессии):\n""")
         if get_hh.get_vacancies(100, name_vacancies) == []:
@@ -31,6 +33,7 @@ class UserInteraction:
     #
     @staticmethod
     def top_n():
+        """Вывод вакансий с самой большой зарплатой"""
         top_vac = int(input('Сколько вакансий показать с самой большой зарплатой?\nВведите число:\n'))
         vacanc = my_vacancy.get_vacancies()
         vacanc.sort(key=lambda vacanc: vacanc.salary_from, reverse=True)  # сортируем список вакансий по з/п
