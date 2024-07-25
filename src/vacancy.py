@@ -1,5 +1,6 @@
 class Vacancy:
     """Класс для работы с вакансиями"""
+
     def __init__(self, name: str, salary, url: str, employer: str):
         self.name = name
         self.url = url
@@ -7,10 +8,10 @@ class Vacancy:
         self.validate_salary(salary)
 
     def __str__(self):
-        return f"""Профессия: {self.name}
-Зарплата от {self.salary_from} руб. до {self.salary_to} руб.
-url: {self.url}
-Название компании: {self.employer}"""
+        return f"""Профессия: {self.name} Зарплата от {self.salary_from} руб. до {self.salary_to} руб. url: {self.url}
+        Название компании: {self.employer}"""
+
+    """вывод поискового результата"""
 
     def validate_salary(self, salary):
         if salary is None:
@@ -31,6 +32,7 @@ url: {self.url}
             if salary["currency"] == "KZT":
                 self.salary_from = int(self.salary_from * 0.2)
                 self.salary_to = int(self.salary_to * 0.2)
+    """задаём диапазон искомой зарплаты"""
 
     def __gt__(self, other):
         if type(other) is Vacancy:
@@ -39,3 +41,5 @@ url: {self.url}
     def __lt__(self, other):
         if type(other) is Vacancy:
             return self.salary_from < other.salary_from
+
+    """методы сравнения зарплат"""
