@@ -15,8 +15,8 @@ class AbstractApi(ABC):
 class HH(AbstractApi):
     """Класс для взаимодействия с API HeadHunter"""
     def __init__(self):
+        """Ссылка для получения БД"""
         self.__url = "https://api.hh.ru/vacancies"
-    """Ссылка для получения БД"""
 
     def get_url(self):
         """геттер для получения url и его возврата необходимый для теста"""
